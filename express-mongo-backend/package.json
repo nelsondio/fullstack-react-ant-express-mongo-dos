@@ -1,0 +1,30 @@
+{
+  "name": "express-mongo-backend",
+  "version": "1.0.0",
+  "description": "Fullstack recipes app backend",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fullstack",
+    "frontend",
+    "backend",
+    "react",
+    "express",
+    "mongo",
+    "ant"
+  ],
+  "author": "Nelson Lopez",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.10",
+    "@babel/node": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "nodemon": "^2.0.16"
+  }
+}
