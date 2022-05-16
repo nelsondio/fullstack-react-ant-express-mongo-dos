@@ -1,7 +1,9 @@
 import express, { application, urlencoded } from 'express';
 import './app.css';
 
-app.use(json());
+const app = express();
+
+app.use(express.json());
 app.use(urlencoded({ extended: true}));
 app.use(express.static('./public'));
 
