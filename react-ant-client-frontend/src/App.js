@@ -1,53 +1,52 @@
-import React, { Component } from 'react';
-import Form from './Form.js';
-import List from './List.js';
+import React, { useEffect, useState } from "react";
 import * as apiCalls from './api';
 import './App.css';
+import Form from './Form';
+import List from './List';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      recipes: [],
-    }
+function App() {
+  const [recipes, setReceipes] = useState([]);
 
-    this.handleSave = this.handleSave.bind(this);
-    this.onDelete = this.onDelete.bind(this);
-  }
-
-  componentDidMount() {
-    console.log("App this.props: ", this.props)
-    this.loadRecipes();
-  }
-
-  async loadRecipes() {
+  const loadRecipes = async () => {
     const recipes = await apiCalls.getRecipes();
     console.log("App loadRecipes: ", recipes);
-    this.setState({ recipes });
+    setReceipes(recipes);
   }
 
-  async handleSave(recipe) {
+  const handleSave = async (recipe) => {
     console.log("App, handleSave : ", recipe)
     const newRecipe = await apiCalls.createRecipe(recipe);
-    this.setState({ recipes: [...this.state.recipes, newRecipe] });
-  }
- 
-  async onDelete(_id) {
-    await apiCalls.removeRecipe(_id);
-    const recipes = this.state.recipes.filter(r => r._id !== _id);
-    this.setState({ recipes });
+    setReceipes([...recipes, newRecipe]);
   }
 
-  render() {
-
-    return (
-      <div className="App">
-        <Form
-          onSave={this.handleSave}
-        />
-        <List  recipes={this.state.recipes} onDelete={this.onDelete}/>
-      </div>
-    );
+  const onDelete = async (id) => {
+    await apiCalls.removeRecipe(id);
+    const filteredRecipes = recipes.filter(r => r._id !== id);
+    setReceipes(filteredRecipes);
   }
+
+  useEffect(() => {
+    loadRecipes();
+  }, []);
+
+  let list;
+  if(recipes.length > 0) {
+    list =  <List  
+              recipes={recipes}
+              onDelete={onDelete} 
+            />
+  } else {
+    list = `No recipes found in the database. Please use the form to add your own recipe!`;
+  }
+
+  return (
+    <div className="App">
+      <Form
+        onSave={handleSave}
+      />
+      {list}
+    </div>
+  );
 }
+
 export default App;
