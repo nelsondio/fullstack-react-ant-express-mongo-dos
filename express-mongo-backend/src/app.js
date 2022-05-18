@@ -1,4 +1,5 @@
 import express, { application, urlencoded } from 'express';
+import recipeRoutes from './routes/recipes.js'
 import './app.css';
 
 const app = express();
@@ -14,7 +15,7 @@ app.get('/', (req, res) =>{
 });
 
 
-const recipeRoutes = require("./routes/recipes");
+//const recipeRoutes = require("./routes/recipes");
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
