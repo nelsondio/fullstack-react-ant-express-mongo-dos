@@ -19,9 +19,9 @@ function App() {
     setReceipes([...recipes, newRecipe]);
   }
 
-  const onDelete = async (id) => {
-    await apiCalls.removeRecipe(id);
-    const filteredRecipes = recipes.filter(r => r._id !== id);
+  const onDelete = async (_id) => {
+    await apiCalls.removeRecipe(_id);
+    const filteredRecipes = recipes.filter(r => r._id !== _id);
     setReceipes(filteredRecipes);
   }
 
