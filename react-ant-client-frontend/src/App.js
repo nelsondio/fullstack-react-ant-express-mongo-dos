@@ -32,9 +32,9 @@ class App extends Component {
     this.setState({ recipes: [...this.state.recipes, newRecipe] });
   }
  
-  async onDelete(id) {
-    await apiCalls.removeRecipe(id);
-    const recipes = this.state.recipes.filter(r => r._id !== id);
+  async onDelete(_id) {
+    await apiCalls.removeRecipe(_id);
+    const recipes = this.state.recipes.filter(r => r._id !== _id);
     this.setState({ recipes });
   }
 
