@@ -56,8 +56,8 @@ function List(props) {
   // passing one-by-one property
   //In return statement you wrap Recipe JSX component with div class 'recipe-list'
   const recipesJSX = props.recipes.map((recipe, index) => (
-    <Recipe key={recipe.id} title={recipe.title} img={recipe.img}
-      instructions={recipe.instructions} id={recipe.id}
+    <Recipe key={recipe._id} title={recipe.title} img={recipe.img}
+      instructions={recipe.instructions} _id={recipe._id}
       ingredients={recipe.ingredients} />
   ));
 
@@ -70,7 +70,7 @@ function List(props) {
 
 function Recipe(props) {
 
-  const { title, img, instructions, id } = props; // destructuring the props 
+  const { title, img, instructions, _id } = props; // destructuring the props 
   // wrapping each ingredient with li HTML elements and returning them
   // with an implicit return inside an arrow function.
   // note that the unique key is the index, which is not optimal
@@ -90,7 +90,7 @@ function Recipe(props) {
         </ul>
         <h4>Instructions:</h4>
         <p>{instructions}</p>
-        <button type="button" onClick={() => alert(`Are you sure to DELETE recipe number ${id + 1}?`)}>DELETE</button>
+        <button type="button" onClick={() => alert(`Are you sure to DELETE recipe number ${_id}?`)}>DELETE</button>
       </div>
     </div>
   );
