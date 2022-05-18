@@ -43,4 +43,18 @@
 1. react-client..../package.json added :
 1. "proxy": "http://localhost:3334",
 1. npm install antd
+
+# 05.18.2022
+
+## When tried to clone into ctl laptop the proxy value was not recognized
+
+1. Do not try "npm install" with the values of package* files.
+1. Either delete those files or do a fresh react installation and then add the source code.
+1. Or change the react-scripts for an older version less than 5.0.0.
+1. Apparently the issue was fixed on react-script 5.0.1, but I did not check
+1. I am going to create a separate repo only for ctl-laptop version
+
+## Rerun eval "$(ssh-agent -s)" and ssh-add ~/.ssh/privatekey because it did not sync
+
+1. ssh-add -L to check the associated keys: none. 
   
