@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 //import Recipe from './recipe.js';
 
 mongoose.set('debug', true);
-mongoose.connect('mongodb://localhost/ant-recipes');
+mongoose.connect('mongodb://localhost:27018/ant-recipes');
 
 mongoose.Promise = Promise;
 

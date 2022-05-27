@@ -1,11 +1,13 @@
 import express, { application, urlencoded } from 'express';
+import cors from 'cors';
 import recipeRoutes from './routes/recipes.js'
 import './app.css';
 
 const app = express();
 
-const port = process.env.PORT || 3334;
+const port = process.env.PORT || 3010;
 
+app.use(cors());
 app.use(express.json());
 app.use(urlencoded({ extended: true}));
 app.use(express.static('./public'));
@@ -16,10 +18,6 @@ app.get('/', (req, res) =>{
 
 
 //const recipeRoutes = require("./routes/recipes");
-
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
-app.use(express.static(__dirname +'/public'));
 
 app.use('/api/recipes', recipeRoutes);
 

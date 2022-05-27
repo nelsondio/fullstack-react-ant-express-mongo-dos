@@ -58,3 +58,6 @@
 
 1. ssh-add -L to check the associated keys: none. 
   
+## Problem with react-scipts 4.0.3 vs 5.0.1 resolved
+
+### The issue was fixed when 1) npm install and 2) live online connection. With no live connection no fix. Switched to using cors module and changing 1) deleting proxy from package dot jason in frontend, 2) adding into frontend/...api.js file  the URL "http://localhost:port/api/recipes", and 3) installing cors in backend/..app.js and adding app.use(cors()); Also fixed a duplicate in the app.use code.

@@ -1,4 +1,4 @@
-const APIURL = '/api/recipes/';
+const APIURL = 'http://localhost:3010/api/recipes/';
 
 
 export async function getRecipes() {
